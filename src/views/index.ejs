@@ -11,16 +11,49 @@ body {
 h1 {
     font-family: Avenir;
     color: #0b1230;
+    font-size: 70px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10%;
+    user-select: none;
+}
+p {
+    font-family: Avenir;
+    color: #0b1230;
+    text-align: center;
+    font-size: 30px;
+    user-select: none; 
 }
 
-#branding {
-    position: absoluteq;
-    width: 50;
-    margin-left: 40%;
-    margin-right: 75%;
-    margin-top: 3%;
+.buttons {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.button {
+    font-family: Avenir;
+    font-weight: bold;
+    width: 600px;
+    height: 60px;
+    margin: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    color: rgb(162, 165, 175);
+    font-size: 20px;
+    box-shadow: -4px -3px 50px 25px rgba(0,0,0,0.025);
+    z-index: 1;
+    transition: 0.1s;
+}
+
+.button:hover {
+    box-shadow: -4px 10px 50px 25px rgba(0,0,0,0.05 );
+}
+
+.button:active {
+    box-shadow: -4px 10px 50px 25px rgba(0, 0, 0, 0.06);
 }
 
 </style>
@@ -31,7 +64,30 @@ h1 {
 
 <title> Right Message </title>
 
-<img id='logo' src='/logo.png'>
+<div class='content'>
+<h1> Right Message </h1>
+<p> Stay safe </p>
+</div>
+
+<br>
+<br>
+
+<div class='buttons'>
+<button class='button' id='Mark' onclick='Spam(`M`)'> Mark </button>
+<button class='button' id='Check' onclick='Spam(`C`)'> Check </button> 
+</div>
+
+<script>
+
+let Spam = (type) => {
+    if (type == 'M') {
+        window.location.href = 'http://' + location.host + '/mark'
+    } else {
+        window.location.href = 'http://' + location.host + '/check'
+    }
+}
+
+</script>
 
 </body>
 
