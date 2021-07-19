@@ -16,13 +16,18 @@ h1 {
     margin-top: 10%;
     user-select: none;
 }
-p {
+span {
     font-family: Avenir;
     color: #0b1230;
     text-align: center;
     font-size: 20px;
     font-weight: 500;
     user-select: auto; 
+}
+
+
+span::selection {
+    background-color: rgba(209, 217, 255, 0.856);
 }
 
 .buttons {
@@ -55,10 +60,15 @@ p {
 
 .button:hover {
     box-shadow: -4px 10px 50px 25px rgba(0,0,0,0.05 );
+    cursor: pointer;
+    box-shadow: 0px 2px 100px rgba(43, 43, 43, 0.12), 0px 0px 0px 3px #3f296325;
+
 }
 
 .button:active {
     box-shadow: -4px 10px 50px 25px rgba(0, 0, 0, 0.06);
+    box-shadow: 0px 2px 100px rgba(43, 43, 43, 0.16), 0px 0px 0px 3px #24193673;
+
 }
 
 .textarea {
@@ -105,7 +115,7 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
-
+    box-shadow: 0px 2px 100px rgba(43, 43, 43, 0.12), 0px 0px 0px 3px #3f296325;
 }
 
 .textareaActive {
@@ -127,11 +137,22 @@ p {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
+    box-shadow: 0px 2px 100px rgba(43, 43, 43, 0.12), 0px 0px 0px 3px #3f296342;
 }
 
 
 textarea::placeholder {
     font-style: italic;
+}
+
+.status:hover {
+    display: inline;
+    background-color: rgba(63, 63, 63, 0.096);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
 
 </style>
@@ -152,7 +173,9 @@ textarea::placeholder {
 <br>
 <br>
 
-<p> <%= status %> </p>
+<div class='container'>
+<span class='status'> &nbsp <%= status %> &nbsp </span>
+</div>
 
 <script>
 

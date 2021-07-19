@@ -21,7 +21,11 @@ app.get('/mark', (req, res) => {
 
 app.post('/mark', (req, res) => {
     console.log(req.body.spam)
-    res.render('mark', {status: 'Marked', message: req.body.spam})
+    fetch('http://3.6.40.9:2002/mark', {method: 'POST', headers: { message: req.body.spam }})
+    .then(res => res.json())
+    .then(json => {
+        res.render('mark', {status: json.message, message: req.body.spam})
+    })
 })
 
 app.get('/check', (req, res) => {
@@ -30,7 +34,11 @@ app.get('/check', (req, res) => {
 
 app.post('/check', (req, res) => {
     console.log(req.body.spam)
-    res.render('check', {status: '∞ people have marked this message as Spam', message: req.body.spam})
+    fetch('http://3.6.40.9:2002/fetch', {method: 'POST', headers: { message: req.body.spam }})
+    .then(res => res.json())
+    .then(json => {
+        res.render('check', {status: json.message, message: req.body.spam})
+    })
 })
 
 app.listen(8080)
