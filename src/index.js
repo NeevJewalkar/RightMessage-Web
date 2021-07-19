@@ -21,6 +21,8 @@ app.get('/mark', (req, res) => {
 
 app.post('/mark', (req, res) => {
     console.log(req.body.spam)
+    let spam = req.body.spam
+    console.log(spam.split('\n').join('lb'))
     fetch('http://3.6.40.9:2002/mark', {method: 'POST', headers: { message: req.body.spam }})
     .then(res => res.json())
     .then(json => {
