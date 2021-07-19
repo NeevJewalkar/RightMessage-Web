@@ -6,4 +6,4 @@ This is a web app which interacts with the database allowing you to, mark a mess
 
 ## Next
 
-+ <span style='color:#FF517B;'>Should add login feature, to prevent people from marking a message as spam a thousand times</span>
++ Should add login feature, to prevent people from marking a message as spam a thousand times
