@@ -26,7 +26,7 @@ app.post('/mark', (req, res) => {
     fetch('http://3.6.40.9:2002/mark', {method: 'POST', headers: { message: req.body.spam }})
     .then(res => res.json())
     .then(json => {
-        res.render('mark', {status: json.message, message: req.body.spam})
+        res.render('mark', {status: json.message, message: spam.split('\n').join('lb')})
     })
 })
 
